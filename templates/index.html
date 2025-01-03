@@ -503,7 +503,7 @@
 
                 if (!response.ok) {
                     const errorData = await response.json().catch(() => ({}));
-                    throw new Error(errorData.message || Server responded with ${response.status});
+                    throw new Error(errorData.message || `Server responded with ${response.status}`);
                 }
 
                 const data = await response.json();

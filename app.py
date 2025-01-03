@@ -14,7 +14,7 @@ import logging
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(_name_)
+logger = logging.getLogger(__name__)
 
 # Load Environment Variables
 load_dotenv()
@@ -33,7 +33,7 @@ class NumpyEncoder(JSONEncoder):
         return super(NumpyEncoder, self).default(obj)
 
 # Flask App Initialization
-app = Flask(_name_)
+app = Flask(__name__)
 
 # Define allowed origins
 ALLOWED_ORIGINS = [
@@ -196,5 +196,5 @@ def predict():
 
 
 # Run the App
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run(debug=True if ENVIRONMENT == "local" else False)
